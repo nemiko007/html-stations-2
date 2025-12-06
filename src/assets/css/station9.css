@@ -1,0 +1,32 @@
+/* ページ読み込み時にフェードインし、その後は表示されたままにする */
+
+/* 初期状態: 非表示 */
+#animation {
+	opacity: 0;
+}
+
+/* keyframes でフェードインを定義 */
+@keyframes fadeIn {
+	0% { opacity: 0; transform: translateY(8px); }
+	100% { opacity: 1; transform: translateY(0); }
+}
+
+/* 要素にアニメーションを適用（1回だけ再生し最終状態を保持） */
+#animation {
+	animation-name: fadeIn;
+	animation-duration: 800ms;
+	animation-timing-function: ease-out;
+	animation-fill-mode: forwards; /* 終了後に最終状態を保持 */
+	animation-iteration-count: 1;
+}
+
+/* アクセシビリティ: ユーザーが減速モーションを要求している場合はアニメーションを無効化 */
+@media (prefers-reduced-motion: reduce) {
+	#animation {
+		animation: none !important;
+		transition: none !important;
+		opacity: 1; /* 即時表示 */
+		transform: none;
+	}
+}
+

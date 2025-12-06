@@ -1,0 +1,31 @@
+/* Basic reset for the page */
+html, body { height: 100%; margin: 0; }
+
+/* center the SVG in the page */
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #ffffff;
+	padding: 24px;
+}
+
+svg {
+	width: 300px;
+	height: 300px;
+	display: block;
+}
+
+/* Apply the requested green color to SVG shapes */
+svg rect,
+svg circle,
+svg path,
+svg polygon {
+	fill: #008000; /* 指定の緑 */
+	stroke: none;
+}
+
+/* If you prefer stroke instead of fill, uncomment the following
+svg rect, svg circle, svg path { fill: none; stroke: #008000; stroke-width: 2px; }
+*/
+

@@ -1,0 +1,92 @@
+/* Layout for station8: header, left sidebar, three stacked main items, footer */
+
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+
+#container {
+	max-width: 1100px;
+	margin: 12px auto;
+	display: grid;
+	grid-template-columns: 200px 1fr;
+	grid-template-rows: 80px 220px 160px 160px 80px;
+	grid-template-areas:
+		"header header"
+		"sidebar item2"
+		"sidebar item3"
+		"sidebar item4"
+		"footer footer";
+	gap: 12px; /* white gutters between boxes */
+	background: white;
+	padding: 8px;
+}
+
+#container > header {
+	grid-row: 1 / 2;
+	grid-column: 1 / 3;
+	background: #3b82b5; /* blue */
+	color: #fff;
+	font-weight: 700;
+	font-size: 28px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* サイドバー */
+#container > div:nth-of-type(1) {
+	grid-row: 2 / 5;
+	grid-column: 1 / 2;
+	background: #bfbfbf;
+	color: #fff;
+	font-weight: 700;
+	font-size: 28px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 16px;
+}
+
+/* 右側の3つのアイテム */
+#container > div:nth-of-type(2),
+#container > div:nth-of-type(3),
+#container > div:nth-of-type(4) {
+	background: #b0b0b0;
+	color: #fff;
+	font-weight: 700;
+	font-size: 28px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#container > div:nth-of-type(2) { grid-row: 2 / 3; grid-column: 2 / 3; }
+#container > div:nth-of-type(3) { grid-row: 3 / 4; grid-column: 2 / 3; }
+#container > div:nth-of-type(4) { grid-row: 4 / 5; grid-column: 2 / 3; }
+
+#container > footer {
+	grid-row: 5 / 6;
+	grid-column: 1 / 3;
+	background: #007b79; /* teal */
+	color: #fff;
+	font-weight: 700;
+	font-size: 28px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* small screens: stack everything vertically */
+@media (max-width: 700px) {
+	#container {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto;
+		grid-template-areas:
+			"header"
+			"sidebar"
+			"item2"
+			"item3"
+			"item4"
+			"footer";
+	}
+}
+
